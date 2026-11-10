@@ -48,14 +48,14 @@ export function WorldExplorer({ origin = "JFK" }: { origin?: string }) {
               <path key={i} d={path(f) ?? ""} strokeWidth={0.4}
                 onClick={c && c.iata !== origin ? () => setSel(c.name) : undefined}
                 className={`stroke-navy transition-colors ${c ? (c.name === sel ? "fill-gold" : "cursor-pointer fill-navy-foreground/30 hover:fill-gold-soft") : "fill-navy-foreground/8"}`}>
-                <title>{name}{c ? "" : " (not currently supported)"}</title>
+                <title>{c ? name : `${name} (not currently supported)`}</title>
               </path>
             );
           })}
           <path key={sel} d={`M${ox},${oy} Q${mx},${my} ${dx},${dy}`} fill="none" className="route-draw stroke-gold" strokeWidth={1.8} strokeDasharray="600" />
           {COUNTRIES.map((c) => {
             const [x, y] = proj([c.lon, c.lat])!;
-            return <circle key={c.code} cx={x} cy={y} r={c.name === sel ? 4.5 : 2} className={`fill-gold ${c.iata !== origin ? "cursor-pointer" : ""}`} onClick={() => c.iata !== origin && setSel(c.name)}><title>{c.hub}, {c.name}</title></circle>;
+            return <circle key={c.code} cx={x} cy={y} r={c.name === sel ? 4.5 : 2} className={`fill-gold ${c.iata !== origin ? "cursor-pointer" : ""}`} onClick={() => c.iata !== origin && setSel(c.name)}><title>{`${c.hub}, ${c.name}`}</title></circle>;
           })}
           <circle cx={ox} cy={oy} r={5} className="fill-navy-foreground" />
         </svg>
