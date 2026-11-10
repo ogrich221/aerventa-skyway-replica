@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
+import { LanguageSelector } from "./LanguageSelector";
 import { CURRENCIES, type CurrencyCode } from "@/lib/data";
 import { useCurrency } from "@/lib/currency";
 
@@ -30,7 +31,21 @@ export function SiteHeader() {
 
   const text = overHero ? "text-navy-foreground" : "text-navy";
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${overHero ? "bg-transparent" : "bg-background/95 shadow-sm backdrop-blur"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${overHero ? "bg-navy/30 backdrop-blur-sm" : "bg-background/95 shadow-sm backdrop-blur"}`}>
+      {/* Top Utility Bar with Language Selector at Top-Left */}
+      <div className={`border-b text-xs transition-colors ${overHero ? "border-white/10 text-navy-foreground/80" : "border-border/60 text-muted-foreground bg-muted/20"}`}>
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-5 lg:px-8">
+          <div className="flex items-center gap-2">
+            <LanguageSelector light={overHero} />
+          </div>
+          <div className="hidden sm:flex items-center gap-3 text-[11px] font-medium tracking-wide">
+            <span className={overHero ? "text-navy-foreground/70" : "text-muted-foreground"}>Global Flight Comparison</span>
+            <span className="text-gold">•</span>
+            <span className={overHero ? "text-navy-foreground/70" : "text-muted-foreground"}>86 Destination Countries</span>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Logo light={overHero} />
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
@@ -58,7 +73,8 @@ export function SiteHeader() {
           {NAV.map((n) => (
             <Link key={n.to} to={n.to} className="block border-b py-3 text-base font-medium text-navy">{n.label}</Link>
           ))}
-          <div className="mt-4 flex items-center gap-3">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <LanguageSelector light={false} />
             <select aria-label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as CurrencyCode)} className="field !w-auto">
               {CURRENCIES.map((c) => <option key={c.code}>{c.code}</option>)}
             </select>

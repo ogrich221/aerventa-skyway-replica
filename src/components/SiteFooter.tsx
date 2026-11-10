@@ -35,7 +35,6 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 text-xs text-navy-foreground/60 md:flex-row lg:px-8">
           <p>© {new Date().getFullYear()} AERVANTA. All rights reserved.</p>
           <div className="flex gap-5">
-            <Link to="/about" hash="faq" className="hover:text-gold">FAQs</Link>
             <Link to="/about" hash="privacy" className="hover:text-gold">Privacy Policy</Link>
             <Link to="/about" hash="terms" className="hover:text-gold">Terms</Link>
           </div>

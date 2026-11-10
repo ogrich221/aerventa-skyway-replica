@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CurrencyProvider } from "@/lib/currency";
+import { LanguageProvider } from "@/lib/language";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -105,12 +106,14 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <CurrencyProvider>
-        <SiteHeader />
-        <main>
-          <Outlet />
-        </main>
-        <SiteFooter />
-        <Toaster />
+        <LanguageProvider>
+          <SiteHeader />
+          <main>
+            <Outlet />
+          </main>
+          <SiteFooter />
+          <Toaster />
+        </LanguageProvider>
       </CurrencyProvider>
     </QueryClientProvider>
   );

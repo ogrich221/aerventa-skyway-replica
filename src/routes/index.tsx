@@ -4,6 +4,7 @@ import { FlightSearch } from "@/components/FlightSearch";
 import { USExplorer } from "@/components/USExplorer";
 import { WorldExplorer } from "@/components/WorldExplorer";
 import { HowItWorks, Inspiration, Newsletter, PopularDestinations, PopularRoutes, SectionHead, WhyChoose } from "@/components/Sections";
+import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,19 +21,20 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { t } = useLanguage();
   return (
     <>
-      <section className="relative min-h-[100svh] overflow-hidden bg-navy pb-16 pt-32">
+      <section className="relative min-h-[100svh] overflow-hidden bg-navy pb-16 pt-36">
         <img src={hero} alt="Passenger aircraft flying above the clouds at sunset" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <div className="rise max-w-3xl">
-            <p className="eyebrow">Explore More · Compare Better · Fly Smarter</p>
+            <p className="eyebrow">{t("heroEyebrow")}</p>
             <h1 className="mt-5 text-5xl font-semibold leading-[1.02] text-navy-foreground md:text-7xl lg:text-8xl">
-              Your Next Destination Starts Here.
+              {t("heroTitle")}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-navy-foreground/85">
-              Compare flight prices, discover international destinations and find better airfare options with AERVANTA.
+              {t("heroSub")}
             </p>
           </div>
           <div className="rise mt-12" style={{ animationDelay: "0.2s" }}>
@@ -43,28 +45,28 @@ function Index() {
 
       <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="Popular destinations" title="Where the world is flying" sub="Twelve iconic cities, one elegant comparison." />
+          <SectionHead eyebrow={t("popularEyebrow")} title={t("popularTitle")} sub={t("popularSub")} />
           <PopularDestinations />
         </div>
       </section>
 
       <section id="explore-america" className="bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="Explore America" title="Fifty states. Endless routes." sub="Select any state to discover its airports, domestic fares and routes across the country." />
+          <SectionHead eyebrow={t("exploreAmericaEyebrow")} title={t("exploreAmericaTitle")} sub={t("exploreAmericaSub")} />
           <USExplorer />
         </div>
       </section>
 
       <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="International destinations" title="A world of routes" sub="Tap a highlighted country on the map or browse by region." />
+          <SectionHead eyebrow={t("worldEyebrow")} title={t("worldTitle")} sub={t("worldSub")} />
           <WorldExplorer />
         </div>
       </section>
 
       <section className="bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="Popular routes" title="Favourite journeys" />
+          <SectionHead eyebrow={t("routesEyebrow")} title={t("routesTitle")} />
           <PopularRoutes />
           <div className="mt-10 text-center"><Link to="/routes" className="text-sm font-semibold text-navy hover:text-gold">View all routes →</Link></div>
         </div>
@@ -72,21 +74,21 @@ function Index() {
 
       <section className="bg-navy py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead light eyebrow="Why choose AERVANTA" title="Comparison, elevated" />
+          <SectionHead light eyebrow={t("whyChooseEyebrow")} title={t("whyChooseTitle")} />
           <WhyChoose />
         </div>
       </section>
 
       <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="How it works" title="Three steps to take-off" />
+          <SectionHead eyebrow={t("howItWorksEyebrow")} title={t("howItWorksTitle")} />
           <HowItWorks />
         </div>
       </section>
 
       <section className="bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHead eyebrow="Travel inspiration" title="Stories for the window seat" />
+          <SectionHead eyebrow={t("inspirationEyebrow")} title={t("inspirationTitle")} />
           <Inspiration />
         </div>
       </section>
