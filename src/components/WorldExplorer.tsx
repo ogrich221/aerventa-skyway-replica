@@ -62,7 +62,7 @@ export function WorldExplorer({ origin = "JFK" }: { origin?: string }) {
         <div className="absolute bottom-4 left-4 max-w-xs rounded-xl bg-background/95 p-4 shadow-elegant backdrop-blur md:bottom-8 md:left-8">
           <p className="eyebrow">{country.region}</p>
           <p className="font-display text-2xl font-semibold text-navy">{country.hub}, {country.name}</p>
-          <p className="mt-1 text-sm text-muted-foreground">New York (JFK) → {country.iata} · demo fare from <span className="font-semibold text-navy">{fmt(cheapestFare(origin, country.iata))}</span></p>
+          <p className="mt-1 text-sm text-muted-foreground">New York (JFK) → {country.iata} · fares from <span className="font-semibold text-navy">{fmt(cheapestFare(origin, country.iata))}</span></p>
           <Link to="/flights" search={{ from: origin, to: country.iata, date: defaultDate(), ret: defaultDate(30), trip: "round" }} className="mt-3 inline-block text-sm font-semibold text-gold hover:underline">Explore routes →</Link>
         </div>
       </div>

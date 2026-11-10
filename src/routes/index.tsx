@@ -3,7 +3,7 @@ import hero from "@/assets/hero-aircraft.jpg";
 import { FlightSearch } from "@/components/FlightSearch";
 import { USExplorer } from "@/components/USExplorer";
 import { WorldExplorer } from "@/components/WorldExplorer";
-import { DemoNote, HowItWorks, Inspiration, Newsletter, PopularDestinations, PopularRoutes, SectionHead, WhyChoose } from "@/components/Sections";
+import { HowItWorks, Inspiration, Newsletter, PopularDestinations, PopularRoutes, SectionHead, WhyChoose } from "@/components/Sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +45,6 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionHead eyebrow="Popular destinations" title="Where the world is flying" sub="Twelve iconic cities, one elegant comparison." />
           <PopularDestinations />
-          <DemoNote />
         </div>
       </section>
 
@@ -60,7 +59,6 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionHead eyebrow="International destinations" title="A world of routes" sub="Tap a highlighted country on the map or browse by region." />
           <WorldExplorer />
-          <DemoNote />
         </div>
       </section>
 

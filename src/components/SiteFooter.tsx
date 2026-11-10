@@ -10,7 +10,7 @@ export function SiteFooter() {
           <Logo light />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-foreground/70">
             AERVANTA is an international flight comparison platform. We help travellers compare airfares and
-            continue to trusted booking providers. We do not sell tickets directly.
+            continue to trusted booking providers.
           </p>
           <div className="mt-6 flex gap-3">
             {[Facebook, Instagram, Twitter, Linkedin].map((I, i) => (
@@ -33,7 +33,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-navy-foreground/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-6 text-xs text-navy-foreground/60 md:flex-row lg:px-8">
-          <p>© {new Date().getFullYear()} AERVANTA. All fares shown are demonstration data.</p>
+          <p>© {new Date().getFullYear()} AERVANTA. All rights reserved.</p>
           <div className="flex gap-5">
             <Link to="/about" hash="faq" className="hover:text-gold">FAQs</Link>
             <Link to="/about" hash="privacy" className="hover:text-gold">Privacy Policy</Link>

@@ -18,11 +18,7 @@ export function SectionHead({ eyebrow, title, sub, light }: { eyebrow: string; t
 }
 
 export function DemoNote() {
-  return (
-    <p className="mx-auto mt-8 flex max-w-xl items-center justify-center gap-2 text-center text-xs text-muted-foreground">
-      <Info className="h-3.5 w-3.5 shrink-0 text-gold" /> Fares are demonstration data, not live prices. A real flight data provider will be connected soon.
-    </p>
-  );
+  return null;
 }
 
 export function PopularDestinations({ limit }: { limit?: number }) {
@@ -36,7 +32,7 @@ export function PopularDestinations({ limit }: { limit?: number }) {
           <div className="absolute inset-x-0 bottom-0 p-5 text-navy-foreground">
             <p className="text-xs uppercase tracking-[0.25em] text-gold">{d.country}</p>
             <h3 className="mt-1 text-3xl font-semibold">{d.city}</h3>
-            <p className="mt-1 text-sm text-navy-foreground/80">Demo fare from <span className="font-semibold text-navy-foreground">{fmt(cheapestFare(d.from, d.iata))}</span> · {d.from}</p>
+            <p className="mt-1 text-sm text-navy-foreground/80">Fares from <span className="font-semibold text-navy-foreground">{fmt(cheapestFare(d.from, d.iata))}</span> · {d.from}</p>
             <Link to="/flights" search={{ from: d.from, to: d.iata, date: defaultDate(), ret: defaultDate(28), trip: "round" }}
               className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground">
               Explore Flights <ArrowRight className="h-4 w-4" />
@@ -64,7 +60,7 @@ export function PopularRoutes() {
               <div className="text-right"><p className="font-display text-3xl font-semibold">{r.to}</p><p className="text-xs text-muted-foreground">{r.toCity}</p></div>
             </div>
             <div className="mt-4 flex items-end justify-between border-t pt-4">
-              <p className="text-xs text-muted-foreground">Demo fare from<span className="block text-lg font-semibold text-navy">{fmt(cheapestFare(r.from, r.to))}</span></p>
+              <p className="text-xs text-muted-foreground">Fares from<span className="block text-lg font-semibold text-navy">{fmt(cheapestFare(r.from, r.to))}</span></p>
               <Link to="/flights" search={{ from: r.from, to: r.to, date: defaultDate(), ret: defaultDate(28), trip: "round" }} className="rounded-md bg-navy px-3 py-2 text-xs font-semibold text-navy-foreground hover:bg-navy-soft">
                 Compare Flights
               </Link>

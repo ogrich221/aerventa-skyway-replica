@@ -88,7 +88,7 @@ export function USExplorer() {
         </div>
 
         <div className="rounded-xl border p-5">
-          <p className="eyebrow">Lowest demo fares from {state.airports[0].iata}</p>
+          <p className="eyebrow">Lowest fares from {state.airports[0].iata}</p>
           <ul className="mt-3 divide-y">
             {domestic.map(({ s, city, iata, fare }) => (
               <li key={s.abbr}>
