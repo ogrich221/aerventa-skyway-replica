@@ -36,7 +36,7 @@ export function USExplorer() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-      <div className="rounded-2xl bg-navy p-4 shadow-elegant md:p-6">
+      <div className="self-start rounded-2xl bg-navy p-4 shadow-elegant md:p-6">
         <svg viewBox="0 0 975 610" className="h-auto w-full" role="img" aria-label="Interactive map of the United States">
           {states.filter((f) => NAMES.has(f.properties.name)).map((f) => {
             const n = f.properties.name;

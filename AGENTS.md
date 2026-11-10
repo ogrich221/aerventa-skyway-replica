@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## AERVANTA
+- All flight fares come from the deterministic demo generator in src/lib/data.ts and must stay labelled as demonstration data until a real flight API replaces it — the brand must never present invented fares as live.
+- Maps render from us-atlas / world-atlas TopoJSON via d3-geo at render time (no map SDK) so they SSR without browser-only code.
