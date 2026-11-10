@@ -18,7 +18,7 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const FAQ = [
+const FAQ: [string, string][] = [
   ["Does AERVANTA sell tickets?", "No. AERVANTA is a comparison platform. When booking integrations go live, you'll continue to the airline or travel provider to complete your purchase."],
   ["Are the prices live?", "Not yet. Fares currently shown are clearly labelled demonstration data. Live pricing will appear once a flight data provider is connected."],
   ["How is currency conversion handled?", "Prices are converted from USD using indicative rates for comparison only. Final prices are set by the booking provider."],

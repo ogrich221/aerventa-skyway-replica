@@ -6,6 +6,8 @@ import type { Topology, GeometryCollection } from "topojson-specification";
 import usTopo from "us-atlas/states-albers-10m.json";
 import { Plane, Search } from "lucide-react";
 import { US_STATES, cheapestFare } from "@/lib/data";
+
+type UsAirport = (typeof US_STATES)[number]["airports"][number];
 import { useCurrency } from "@/lib/currency";
 import { defaultDate } from "@/lib/destinations";
 
@@ -20,14 +22,14 @@ export function USExplorer() {
   const [dest, setDest] = useState("California");
   const [q, setQ] = useState("");
   const [hover, setHover] = useState<string | null>(null);
-  const state = US_STATES.find((s) => s.name === sel)!;
-  const destState = US_STATES.find((s) => s.name === dest)!;
+  const state = US_STATES.find((s) => s.name === sel)! as (typeof US_STATES)[number] & { airports: [UsAirport, ...UsAirport[]] };
+  const destState = (US_STATES.find((s) => s.name === dest) ?? US_STATES[0]!) as typeof state;
   const matches = US_STATES.filter((s) => s.name.toLowerCase().includes(q.toLowerCase()) || s.abbr.toLowerCase() === q.toLowerCase());
 
   const domestic = useMemo(() => {
     const origin = state.airports[0].iata;
     return US_STATES.filter((s) => s.name !== sel)
-      .map((s) => ({ s, iata: s.airports[0].iata, fare: cheapestFare(origin, s.airports[0].iata) }))
+      .map((s) => ({ s, city: s.airports[0]!.city, iata: s.airports[0]!.iata, fare: cheapestFare(origin, s.airports[0]!.iata) }))
       .sort((a, b) => a.fare - b.fare)
       .slice(0, 6);
   }, [sel, state]);
@@ -88,10 +90,10 @@ export function USExplorer() {
         <div className="rounded-xl border p-5">
           <p className="eyebrow">Lowest demo fares from {state.airports[0].iata}</p>
           <ul className="mt-3 divide-y">
-            {domestic.map(({ s, iata, fare }) => (
+            {domestic.map(({ s, city, iata, fare }) => (
               <li key={s.abbr}>
                 <Link to="/flights" search={{ from: state.airports[0].iata, to: iata, date: defaultDate(), trip: "oneway" }} className="flex items-center justify-between py-2 text-sm hover:text-gold">
-                  <span>{s.airports[0].city}, {s.abbr}</span>
+                  <span>{city}, {s.abbr}</span>
                   <span className="font-semibold">from {fmt(fare)}</span>
                 </Link>
               </li>

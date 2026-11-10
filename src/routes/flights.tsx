@@ -9,18 +9,21 @@ import { defaultDate } from "@/lib/destinations";
 import { Button } from "@/components/ui/button";
 
 type Trip = "round" | "oneway" | "multi";
-interface FlightSearchParams { from?: string; to?: string; date?: string; ret?: string; trip?: Trip; pax?: number; cabin?: Cabin }
+interface FlightSearchParams { from?: string | undefined; to?: string | undefined; date?: string | undefined; ret?: string | undefined; trip?: Trip | undefined; pax?: number | undefined; cabin?: Cabin | undefined }
 
 export const Route = createFileRoute("/flights")({
-  validateSearch: (s: Record<string, unknown>): FlightSearchParams => ({
-    from: typeof s.from === "string" ? s.from.toUpperCase() : undefined,
-    to: typeof s.to === "string" ? s.to.toUpperCase() : undefined,
-    date: typeof s.date === "string" ? s.date : undefined,
-    ret: typeof s.ret === "string" ? s.ret : undefined,
-    trip: s.trip === "round" || s.trip === "oneway" || s.trip === "multi" ? s.trip : undefined,
-    pax: Number(s.pax) >= 1 && Number(s.pax) <= 9 ? Number(s.pax) : undefined,
-    cabin: CABINS.includes(s.cabin as Cabin) ? (s.cabin as Cabin) : undefined,
-  }),
+  validateSearch: (raw: Record<string, unknown>): FlightSearchParams => {
+    const { from, to, date, ret, trip, pax, cabin } = raw;
+    return {
+    from: typeof from === "string" ? from.toUpperCase() : undefined,
+    to: typeof to === "string" ? to.toUpperCase() : undefined,
+    date: typeof date === "string" ? date : undefined,
+    ret: typeof ret === "string" ? ret : undefined,
+    trip: trip === "round" || trip === "oneway" || trip === "multi" ? trip : undefined,
+    pax: Number(pax) >= 1 && Number(pax) <= 9 ? Number(pax) : undefined,
+    cabin: CABINS.includes(cabin as Cabin) ? (cabin as Cabin) : undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Explore Flights — Compare Fares | AERVANTA" },

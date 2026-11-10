@@ -285,12 +285,12 @@ export function generateFlights(from: string, to: string, date: string, cabin: C
   const out: Flight[] = [];
   const n = 10 + Math.floor(r() * 5);
   for (let i = 0; i < n; i++) {
-    const airline = AIRLINES[Math.floor(r() * AIRLINES.length)];
+    const airline = AIRLINES[Math.floor(r() * AIRLINES.length)]!;
     const stops = km < 1500 ? (r() < 0.8 ? 0 : 1) : r() < 0.4 ? 0 : r() < 0.85 ? 1 : 2;
     const durationMin = baseMin + stops * (70 + Math.floor(r() * 150));
     const priceUsd = Math.round(baseFare * (0.75 + r() * 0.7) * (stops === 0 ? 1.15 : 1 - stops * 0.08) * CABIN_MULT[cabin]);
     const depart = Math.floor(r() * 96) * 15;
-    const via = VIA.filter((v) => v !== from && v !== to)[Math.floor(r() * (VIA.length - 2))];
+    const via = VIA.filter((v) => v !== from && v !== to)[Math.floor(r() * (VIA.length - 2))] ?? "LHR";
     out.push({
       id: `${airline.code}${i}`,
       airline,

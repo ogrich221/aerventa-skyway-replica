@@ -8,7 +8,7 @@ import { defaultDate } from "@/lib/destinations";
 
 type Trip = "round" | "oneway" | "multi";
 
-export interface SearchInit { from?: string; to?: string; date?: string; ret?: string; trip?: Trip; pax?: number; cabin?: Cabin }
+export interface SearchInit { from?: string | undefined; to?: string | undefined; date?: string | undefined; ret?: string | undefined; trip?: Trip | undefined; pax?: number | undefined; cabin?: Cabin | undefined }
 
 export function FlightSearch({ init = {}, compact = false }: { init?: SearchInit; compact?: boolean }) {
   const navigate = useNavigate();
