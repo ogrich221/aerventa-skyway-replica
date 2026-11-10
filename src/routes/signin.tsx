@@ -3,7 +3,7 @@ import img from "@/assets/hero-aircraft.jpg";
 import { Logo } from "@/components/Logo";
 
 export const Route = createFileRoute("/signin")({
-  validateSearch: (s: Record<string, unknown>): { mode?: "signup" } => ({ mode: s.mode === "signup" ? "signup" : undefined }),
+  validateSearch: ({ mode }: Record<string, unknown>): { mode?: "signup" | undefined } => ({ mode: mode === "signup" ? "signup" : undefined }),
   head: () => ({
     meta: [
       { title: "Sign In — AERVANTA" },

@@ -256,7 +256,7 @@ export interface Flight {
   depart: number; // minutes from midnight
   durationMin: number;
   stops: number;
-  stopVia?: string;
+  stopVia?: string | undefined;
   baggage: string;
   cabin: Cabin;
   priceUsd: number; // per passenger

@@ -80,7 +80,7 @@ function FlightsPage() {
 
   const best = (k: Sort) => {
     if (!flights.length) return null;
-    const f = [...flights].sort((a, b) => k === "cheapest" ? a.priceUsd - b.priceUsd : k === "fastest" ? a.durationMin - b.durationMin : b.score - a.score)[0];
+    const f = [...flights].sort((a, b) => k === "cheapest" ? a.priceUsd - b.priceUsd : k === "fastest" ? a.durationMin - b.durationMin : b.score - a.score)[0]!;
     return `${fmt(f.priceUsd * pax)} · ${fmtDur(f.durationMin)}`;
   };
   const toggle = <T,>(arr: T[], v: T, set: (x: T[]) => void) => set(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
