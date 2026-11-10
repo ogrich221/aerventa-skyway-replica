@@ -158,7 +158,7 @@ export function Newsletter() {
         if (!/^\S+@\S+\.\S+$/.test(email)) return setErr("Please enter a valid email address.");
         if (!consent) return setErr("Please agree to the privacy policy to subscribe.");
         setErr(""); setEmail(""); setConsent(false);
-        toast.success("Thanks! You're on the list.");
+        toast.success("Thanks! We'll confirm your subscription once our newsletter launches.");
       }}>
         <div className="flex flex-col gap-3 sm:flex-row">
           <label htmlFor="nl-email" className="sr-only">Email address</label>
