@@ -2,7 +2,7 @@ import { useId, useMemo, useRef, useState } from "react";
 import { MapPin } from "lucide-react";
 import { AIRPORTS, findAirport } from "@/lib/data";
 
-export function AirportPicker({ label, value, onChange, exclude }: { label: string; value: string; onChange: (iata: string) => void; exclude?: string }) {
+export function AirportPicker({ label, value, onChange, exclude, light = false }: { label: string; value: string; onChange: (iata: string) => void; exclude?: string; light?: boolean }) {
   const id = useId();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export function AirportPicker({ label, value, onChange, exclude }: { label: stri
 
   return (
     <div className="relative">
-      <label htmlFor={id} className="mb-1.5 block text-[0.7rem] font-semibold uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={id} className={`mb-1.5 block text-[0.7rem] font-semibold uppercase tracking-widest ${light ? "text-navy-foreground/85" : "text-muted-foreground"}`}>{label}</label>
       <div className="relative">
         <MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gold" />
         <input
