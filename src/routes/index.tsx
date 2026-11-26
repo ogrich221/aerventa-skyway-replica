@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { SkyWayHero } from "@/components/SkyWayHero";
 import { USExplorer } from "@/components/USExplorer";
 import { WorldExplorer } from "@/components/WorldExplorer";
 import { HowItWorks, Inspiration, Newsletter, PopularDestinations, PopularRoutes, SectionHead, WhyChoose } from "@/components/Sections";
@@ -25,6 +26,8 @@ function Index() {
   return (
     <>
       <HeroSlideshow />
+
+      <SkyWayHero />
 
       <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
