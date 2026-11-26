@@ -61,10 +61,6 @@ export function SiteHeader() {
             className={`cursor-pointer rounded-md border bg-transparent px-2 py-1.5 text-xs font-semibold ${overHero ? "border-navy-foreground/30 text-navy-foreground" : "border-border text-navy"}`}>
             {CURRENCIES.map((c) => <option key={c.code} value={c.code} className="text-navy">{c.code}</option>)}
           </select>
-          <Link to="/signin" className={`text-sm font-medium hover:text-gold ${text}`}>Sign In</Link>
-          {path !== "/" && (
-            <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground shadow-gold">Create Account</Link>
-          )}
         </div>
         <button className={`lg:hidden ${text}`} onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -80,10 +76,6 @@ export function SiteHeader() {
             <select aria-label="Currency" value={currency} onChange={(e) => setCurrency(e.target.value as CurrencyCode)} className="field !w-auto">
               {CURRENCIES.map((c) => <option key={c.code}>{c.code}</option>)}
             </select>
-            <Link to="/signin" className="text-sm font-medium text-navy">Sign In</Link>
-            {path !== "/" && (
-              <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground">Create Account</Link>
-            )}
           </div>
         </div>
       )}

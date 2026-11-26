@@ -14,7 +14,6 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as FlightsRouteImport } from './routes/flights'
 import { Route as RoutesRouteImport } from './routes/routes'
-import { Route as SigninRouteImport } from './routes/signin'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,11 +40,6 @@ const RoutesRoute = RoutesRouteImport.update({
   path: '/routes',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SigninRoute = SigninRouteImport.update({
-  id: '/signin',
-  path: '/signin',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +47,6 @@ export interface FileRoutesByFullPath {
   '/destinations': typeof DestinationsRoute
   '/flights': typeof FlightsRoute
   '/routes': typeof RoutesRoute
-  '/signin': typeof SigninRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +54,6 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRoute
   '/flights': typeof FlightsRoute
   '/routes': typeof RoutesRoute
-  '/signin': typeof SigninRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,22 +62,13 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRoute
   '/flights': typeof FlightsRoute
   '/routes': typeof RoutesRoute
-  '/signin': typeof SigninRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/about' | '/destinations' | '/flights' | '/routes' | '/signin'
+  fullPaths: '/' | '/about' | '/destinations' | '/flights' | '/routes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/destinations' | '/flights' | '/routes' | '/signin'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/destinations'
-    | '/flights'
-    | '/routes'
-    | '/signin'
+  to: '/' | '/about' | '/destinations' | '/flights' | '/routes'
+  id: '__root__' | '/' | '/about' | '/destinations' | '/flights' | '/routes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -94,7 +77,6 @@ export interface RootRouteChildren {
   DestinationsRoute: typeof DestinationsRoute
   FlightsRoute: typeof FlightsRoute
   RoutesRoute: typeof RoutesRoute
-  SigninRoute: typeof SigninRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -134,13 +116,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoutesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/signin': {
-      id: '/signin'
-      path: '/signin'
-      fullPath: '/signin'
-      preLoaderRoute: typeof SigninRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -150,7 +125,6 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationsRoute: DestinationsRoute,
   FlightsRoute: FlightsRoute,
   RoutesRoute: RoutesRoute,
-  SigninRoute: SigninRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

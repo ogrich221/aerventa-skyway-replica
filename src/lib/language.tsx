@@ -92,8 +92,6 @@ export type TranslationKey =
   | "newsletterSub"
   | "exploreFlights"
   | "compareFlights"
-  | "signIn"
-  | "createAccount"
   | "navHome"
   | "navFlights"
   | "navDestinations"
@@ -127,8 +125,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Destination stories and route inspiration, a few times a month.",
     exploreFlights: "Explore Flights",
     compareFlights: "Compare Flights",
-    signIn: "Sign In",
-    createAccount: "Create Account",
     navHome: "Home",
     navFlights: "Explore Flights",
     navDestinations: "Destinations",
@@ -161,8 +157,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Historias de destinos e inspiración de rutas unas cuantas veces al mes.",
     exploreFlights: "Explorar Vuelos",
     compareFlights: "Comparar Vuelos",
-    signIn: "Iniciar Sesión",
-    createAccount: "Crear Cuenta",
     navHome: "Inicio",
     navFlights: "Explorar Vuelos",
     navDestinations: "Destinos",
@@ -195,8 +189,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Idées de destinations et inspirations quelques fois par mois.",
     exploreFlights: "Explorer les Vols",
     compareFlights: "Comparer les Vols",
-    signIn: "Connexion",
-    createAccount: "Créer un Compte",
     navHome: "Accueil",
     navFlights: "Explorer les Vols",
     navDestinations: "Destinations",
@@ -229,8 +221,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Reisezielgeschichten und Routeninspirationen mehrmals im Monat.",
     exploreFlights: "Flüge Erkunden",
     compareFlights: "Flüge Vergleichen",
-    signIn: "Anmelden",
-    createAccount: "Konto Erstellen",
     navHome: "Startseite",
     navFlights: "Flüge Erkunden",
     navDestinations: "Reiseziele",
@@ -263,8 +253,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Storie di destinazioni e ispirazioni di viaggio ogni mese.",
     exploreFlights: "Esplora Voli",
     compareFlights: "Confronta Voli",
-    signIn: "Accedi",
-    createAccount: "Crea Account",
     navHome: "Home",
     navFlights: "Esplora Voli",
     navDestinations: "Destinazioni",
@@ -297,8 +285,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "Histórias de destinos e inspiração de rotas todos os meses.",
     exploreFlights: "Explorar Voos",
     compareFlights: "Comparar Voos",
-    signIn: "Entrar",
-    createAccount: "Criar Conta",
     navHome: "Início",
     navFlights: "Explorar Voos",
     navDestinations: "Destinos",
@@ -331,8 +317,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "注目の旅先やおすすめのフライト情報を毎月お届けします。",
     exploreFlights: "フライトを探す",
     compareFlights: "フライトを比較",
-    signIn: "ログイン",
-    createAccount: "アカウント作成",
     navHome: "ホーム",
     navFlights: "フライト検索",
     navDestinations: "目的地",
@@ -365,8 +349,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "每月为您呈献航线灵感与目的地故事。",
     exploreFlights: "探索航班",
     compareFlights: "对比航班",
-    signIn: "登录",
-    createAccount: "注册账号",
     navHome: "首页",
     navFlights: "探索航班",
     navDestinations: "目的地",
@@ -399,8 +381,6 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
     newsletterSub: "قصص الوجهات وإلهام المسارات تصلك دورياً.",
     exploreFlights: "استكشف الرحلات",
     compareFlights: "قارن الأسعار",
-    signIn: "تسجيل الدخول",
-    createAccount: "إنشاء حساب",
     navHome: "الرئيسية",
     navFlights: "استكشاف الرحلات",
     navDestinations: "الوجهات",
