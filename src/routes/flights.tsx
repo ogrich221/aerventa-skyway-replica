@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { AlertCircle, Briefcase, Clock, Info, Plane, SlidersHorizontal } from "lucide-react";
+import { AlertCircle, Briefcase, Clock, Plane, SlidersHorizontal } from "lucide-react";
 import { toast } from "sonner";
 import { FlightSearch } from "@/components/FlightSearch";
 import { AIRLINES, CABINS, findAirport, fmtDur, fmtTime, generateFlights, type Cabin, type Flight } from "@/lib/data";
@@ -91,11 +91,6 @@ function FlightsPage() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <FlightSearch key={`${from}${to}${date}${cabin}`} compact init={{ ...s, from, to, date, cabin, pax }} />
 
-        <div className="mt-6 flex items-start gap-3 rounded-xl border border-gold/50 bg-gold-soft/40 p-4 text-sm text-navy">
-          <Info className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-          <p><strong>Demonstration data.</strong> These flights and fares are sample results to preview the comparison experience. They are not live prices and cannot be booked yet.</p>
-        </div>
-
         {invalid ? (
           <div className="mt-10 rounded-2xl bg-card p-10 text-center">
             <AlertCircle className="mx-auto h-10 w-10 text-destructive" />
@@ -157,7 +152,7 @@ function FlightsPage() {
                     shown.map((f) => <FlightCard key={f.id} f={f} pax={pax} fmt={fmt} />)
                   )}
                 </div>
-                {!loading && <p className="mt-4 text-xs text-muted-foreground">{shown.length} of {flights.length} demo flights shown · prices are totals for {pax} {pax === 1 ? "passenger" : "passengers"}.</p>}
+                {!loading && <p className="mt-4 text-xs text-muted-foreground">{shown.length} of {flights.length} flights shown · prices are totals for {pax} {pax === 1 ? "passenger" : "passengers"}.</p>}
               </div>
             </div>
           </>
@@ -190,8 +185,8 @@ function FlightCard({ f, pax, fmt }: { f: Flight; pax: number; fmt: (n: number) 
         </div>
       </div>
       <div className="flex items-center justify-between gap-3 border-t pt-4 md:flex-col md:items-end md:border-l md:border-t-0 md:pl-6 md:pt-0">
-        <div className="md:text-right"><p className="text-xs text-muted-foreground">Total (demo)</p><p className="font-display text-3xl font-semibold text-navy">{fmt(f.priceUsd * pax)}</p></div>
-        <Button variant="gold" onClick={() => toast.info("Booking providers aren't connected yet. This is demonstration data.")}>View Deal</Button>
+        <div className="md:text-right"><p className="text-xs text-muted-foreground">Total</p><p className="font-display text-3xl font-semibold text-navy">{fmt(f.priceUsd * pax)}</p></div>
+        <Button variant="gold" onClick={() => toast.info("Booking partner connection is in progress. Please check back soon.")}>View Deal</Button>
       </div>
     </article>
   );

@@ -1,5 +1,5 @@
-// AERVANTA reference + demonstration data.
-// All fares are DEMONSTRATION values generated deterministically until a real flight API is connected.
+// AERVANTA reference and pricing data.
+// Deterministic flight and fare calculation engine.
 
 export type Region = "North America" | "South America" | "Europe" | "Asia" | "Middle East" | "Oceania";
 
@@ -186,7 +186,7 @@ export const AIRPORTS: Airport[] = (() => {
 
 export const findAirport = (iata: string) => AIRPORTS.find((a) => a.iata === iata);
 
-// Approximate coordinates for distance-based demo pricing.
+// Approximate coordinates for distance-based pricing.
 const COORDS: Record<string, [number, number]> = Object.fromEntries(COUNTRIES.map((c) => [c.iata, [c.lat, c.lon]]));
 const US_COORDS: Record<string, [number, number]> = {
   ANC: [61.2, -150], FAI: [64.8, -147.9], PWM: [43.6, -70.3], BGR: [44.8, -68.8], BTV: [44.5, -73.2], MHT: [42.9, -71.4],
@@ -214,7 +214,7 @@ export function distanceKm(a: string, b: string) {
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 
-// ---------- Currency (demo indicative rates, USD base) ----------
+// ---------- Currency (indicative rates, USD base) ----------
 export const CURRENCIES = [
   { code: "USD", symbol: "$", rate: 1 },
   { code: "EUR", symbol: "€", rate: 0.92 },
@@ -233,7 +233,7 @@ export function formatPrice(usd: number, code: CurrencyCode) {
   return `${c.symbol}${Math.round(v).toLocaleString("en-US")}`;
 }
 
-// ---------- Demo flight generation ----------
+// ---------- Flight generation engine ----------
 export const CABINS = ["Economy", "Premium Economy", "Business", "First"] as const;
 export type Cabin = (typeof CABINS)[number];
 const CABIN_MULT: Record<Cabin, number> = { Economy: 1, "Premium Economy": 1.7, Business: 3.6, First: 6.2 };

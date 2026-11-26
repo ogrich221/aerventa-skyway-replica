@@ -17,10 +17,6 @@ export function SectionHead({ eyebrow, title, sub, light }: { eyebrow: string; t
   );
 }
 
-export function DemoNote() {
-  return null;
-}
-
 export function PopularDestinations({ limit }: { limit?: number }) {
   const { fmt } = useCurrency();
   return (

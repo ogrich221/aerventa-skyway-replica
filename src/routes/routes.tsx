@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import img from "@/assets/dest-london.jpg";
 import { PageHero } from "@/components/PageHero";
-import { DemoNote, HowItWorks, PopularRoutes, SectionHead } from "@/components/Sections";
+import { HowItWorks, PopularRoutes, SectionHead } from "@/components/Sections";
 
 export const Route = createFileRoute("/routes")({
   head: () => ({
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/routes")({
   component: () => (
     <>
       <PageHero img={img} eyebrow="Popular routes" title="The journeys travellers love." sub="From transatlantic classics to trans-Pacific adventures." />
-      <section className="py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><PopularRoutes /><DemoNote /></div></section>
+      <section className="py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><PopularRoutes /></div></section>
       <section className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHead eyebrow="How it works" title="Three steps to take-off" /><HowItWorks /></div></section>
     </>
   ),

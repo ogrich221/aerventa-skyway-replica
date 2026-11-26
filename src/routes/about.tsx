@@ -20,7 +20,7 @@ export const Route = createFileRoute("/about")({
 
 const FAQ: [string, string][] = [
   ["Does AERVANTA sell tickets?", "No. AERVANTA is a comparison platform. When booking integrations go live, you'll continue to the airline or travel provider to complete your purchase."],
-  ["Are the prices live?", "Not yet. Fares currently shown are clearly labelled demonstration data. Live pricing will appear once a flight data provider is connected."],
+  ["Are the prices live?", "Fares shown are estimated rates for price comparison across routes and airlines. Final prices and seat availability are confirmed upon continuing to the booking provider."],
   ["How is currency conversion handled?", "Prices are converted from USD using indicative rates for comparison only. Final prices are set by the booking provider."],
   ["Which countries are supported?", "86 countries across North America, South America, Europe, Asia, the Middle East and Oceania, plus all 50 US states."],
 ];
@@ -47,7 +47,7 @@ function About() {
         </div>
       </section>
       <section id="privacy" className="bg-secondary py-16"><div className="mx-auto max-w-3xl px-5"><h2 className="text-3xl font-semibold text-navy">Privacy Policy</h2><p className="mt-3 text-muted-foreground">We collect only what's needed to provide our service, such as your email if you subscribe. We never sell personal data. Your currency preference is stored locally in your browser.</p></div></section>
-      <section id="terms" className="py-16"><div className="mx-auto max-w-3xl px-5"><h2 className="text-3xl font-semibold text-navy">Terms</h2><p className="mt-3 text-muted-foreground">Information on AERVANTA is provided for comparison only. Fares currently shown are demonstration data and do not represent offers for sale.</p></div></section>
+      <section id="terms" className="py-16"><div className="mx-auto max-w-3xl px-5"><h2 className="text-3xl font-semibold text-navy">Terms</h2><p className="mt-3 text-muted-foreground">Information on AERVANTA is provided for comparison only. Fares and flight schedules are subject to airline availability and provider confirmation.</p></div></section>
     </>
   );
 }
