@@ -7,6 +7,7 @@ import { HowItWorks, Inspiration, Newsletter, PopularDestinations, PopularRoutes
 import { useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "AERVANTA — Compare International Flights | Fly Smarter" },

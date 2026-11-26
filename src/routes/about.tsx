@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHead, WhyChoose } from "@/components/Sections";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "About AERVANTA — International Flight Comparison" },

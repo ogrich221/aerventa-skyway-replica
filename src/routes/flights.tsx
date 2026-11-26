@@ -12,6 +12,7 @@ type Trip = "round" | "oneway" | "multi";
 interface FlightSearchParams { from?: string | undefined; to?: string | undefined; date?: string | undefined; ret?: string | undefined; trip?: Trip | undefined; pax?: number | undefined; cabin?: Cabin | undefined }
 
 export const Route = createFileRoute("/flights")({
+  staticData: { sitemap: true },
   validateSearch: (raw: Record<string, unknown>): FlightSearchParams => {
     const { from, to, date, ret, trip, pax, cabin } = raw;
     return {

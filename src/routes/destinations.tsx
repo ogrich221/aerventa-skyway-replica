@@ -6,6 +6,7 @@ import { WorldExplorer } from "@/components/WorldExplorer";
 import { USExplorer } from "@/components/USExplorer";
 
 export const Route = createFileRoute("/destinations")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Destinations — 86 Countries & All 50 States | AERVANTA" },

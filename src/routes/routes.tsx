@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { HowItWorks, PopularRoutes, SectionHead } from "@/components/Sections";
 
 export const Route = createFileRoute("/routes")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Popular Flight Routes — Compare Fares | AERVANTA" },
