@@ -2,13 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import img from "@/assets/hero-aircraft.jpg";
 import { PageHero } from "@/components/PageHero";
 import { SectionHead, WhyChoose } from "@/components/Sections";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About AERVANTA — International Flight Comparison" },
-      { name: "description", content: "Learn about AERVANTA, our mission, FAQs, privacy policy and terms." },
+      { name: "description", content: "Learn about AERVANTA, our mission, privacy policy and terms." },
       { property: "og:title", content: "About AERVANTA" },
       { property: "og:description", content: "Explore More. Compare Better. Fly Smarter." },
       { property: "og:type", content: "website" },
@@ -17,13 +16,6 @@ export const Route = createFileRoute("/about")({
   }),
   component: About,
 });
-
-const FAQ: [string, string][] = [
-  ["Does AERVANTA sell tickets?", "No. AERVANTA is a comparison platform. When booking integrations go live, you'll continue to the airline or travel provider to complete your purchase."],
-  ["Are the prices live?", "Fares shown are estimated rates for price comparison across routes and airlines. Final prices and seat availability are confirmed upon continuing to the booking provider."],
-  ["How is currency conversion handled?", "Prices are converted from USD using indicative rates for comparison only. Final prices are set by the booking provider."],
-  ["Which countries are supported?", "86 countries across North America, South America, Europe, Asia, the Middle East and Oceania, plus all 50 US states."],
-];
 
 function About() {
   return (
@@ -36,16 +28,6 @@ function About() {
         </div>
       </section>
       <section className="bg-navy py-24"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHead light eyebrow="What we offer" title="Comparison, elevated" /><WhyChoose /></div></section>
-      <section id="faq" className="py-24">
-        <div className="mx-auto max-w-3xl px-5">
-          <SectionHead eyebrow="FAQs" title="Frequently asked questions" />
-          <Accordion type="single" collapsible>
-            {FAQ.map(([q, a]) => (
-              <AccordionItem key={q} value={q}><AccordionTrigger className="text-left text-base text-navy">{q}</AccordionTrigger><AccordionContent className="text-muted-foreground">{a}</AccordionContent></AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
       <section id="privacy" className="bg-secondary py-16"><div className="mx-auto max-w-3xl px-5"><h2 className="text-3xl font-semibold text-navy">Privacy Policy</h2><p className="mt-3 text-muted-foreground">We collect only what's needed to provide our service, such as your email if you subscribe. We never sell personal data. Your currency preference is stored locally in your browser.</p></div></section>
       <section id="terms" className="py-16"><div className="mx-auto max-w-3xl px-5"><h2 className="text-3xl font-semibold text-navy">Terms</h2><p className="mt-3 text-muted-foreground">Information on AERVANTA is provided for comparison only. Fares and flight schedules are subject to airline availability and provider confirmation.</p></div></section>
     </>
