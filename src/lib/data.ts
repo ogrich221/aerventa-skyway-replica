@@ -281,7 +281,7 @@ export function generateFlights(from: string, to: string, date: string, cabin: C
   const r = rng(hash(`${from}-${to}-${date}`));
   const km = distanceKm(from, to);
   const baseMin = Math.max(55, Math.round((km / 820) * 60 + 30));
-  const baseFare = 60 + km * 0.085;
+  const baseFare = (60 + km * 0.085) * 1.15;
   const out: Flight[] = [];
   const n = 10 + Math.floor(r() * 5);
   for (let i = 0; i < n; i++) {
