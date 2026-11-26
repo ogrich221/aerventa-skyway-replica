@@ -62,7 +62,9 @@ export function SiteHeader() {
             {CURRENCIES.map((c) => <option key={c.code} value={c.code} className="text-navy">{c.code}</option>)}
           </select>
           <Link to="/signin" className={`text-sm font-medium hover:text-gold ${text}`}>Sign In</Link>
-          <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground shadow-gold">Create Account</Link>
+          {path !== "/" && (
+            <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground shadow-gold">Create Account</Link>
+          )}
         </div>
         <button className={`lg:hidden ${text}`} onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -79,7 +81,9 @@ export function SiteHeader() {
               {CURRENCIES.map((c) => <option key={c.code}>{c.code}</option>)}
             </select>
             <Link to="/signin" className="text-sm font-medium text-navy">Sign In</Link>
-            <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground">Create Account</Link>
+            {path !== "/" && (
+              <Link to="/signin" search={{ mode: "signup" }} className="rounded-md bg-gradient-gold px-4 py-2 text-sm font-semibold text-gold-foreground">Create Account</Link>
+            )}
           </div>
         </div>
       )}

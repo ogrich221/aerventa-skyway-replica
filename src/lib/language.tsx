@@ -409,6 +409,16 @@ const TRANSLATIONS: Record<string, Partial<Record<TranslationKey, string>>> = {
   },
 };
 
+const DEFAULT_LANGUAGE: SupportedLanguage =
+  LANGUAGES.find((l) => l.code === "en-US") ??
+  LANGUAGES[0] ?? {
+    code: "en-US",
+    name: "English (US)",
+    native: "English (US)",
+    flag: "🇺🇸",
+    region: "North America",
+  };
+
 interface LanguageContextType {
   language: string;
   setLanguage: (lang: string) => void;
@@ -419,7 +429,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType>({
   language: "en-US",
   setLanguage: () => {},
-  currentLanguage: LANGUAGES[0],
+  currentLanguage: DEFAULT_LANGUAGE,
   t: (key) => TRANSLATIONS["en-US"]?.[key] || key,
 });
 
@@ -441,11 +451,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     toast.success(`Language set to ${match.native} (${match.name})`);
   };
 
-  const currentLanguage = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
+  const currentLanguage = LANGUAGES.find((l) => l.code === language) ?? DEFAULT_LANGUAGE;
 
   const t = (key: TranslationKey): string => {
     // Check direct code match, then 2-letter fallback (e.g. "en" from "en-US")
-    const shortCode = language.split("-")[0];
+    const shortCode = language.split("-")[0] ?? "en";
     const dict = TRANSLATIONS[language] || TRANSLATIONS[shortCode] || TRANSLATIONS["en-US"];
     return dict?.[key] || TRANSLATIONS["en-US"]?.[key] || key;
   };
